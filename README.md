@@ -1,7 +1,6 @@
-TOYOSHIKI Tiny BASIC for Linux
+TOYOSHIKI Tiny BASIC for CP/M
 
-The code tested in Raspberry Pi Debian Wheezy.<br>
-Use UART terminal.
+The code tested in 60K CP/M 2.2 for SHARP X1.(on emulator)
 
 Operation example
 
@@ -33,9 +32,10 @@ PALO ALTO TinyBASIC -> [Ctrl]+[C]<br>
 TOYOSHIKI TinyBASIC -> [ESC]
 
 (3)SYSTEM command<br>
-SYSTEM return to Linux.
+SYSTEM return to CP/M.
 
 (4)Other some beyond my expectations.
 
 (C)2015 Tetsuya Suzuki<br>
+2021 ported by Meister<br>
 GNU General Public License

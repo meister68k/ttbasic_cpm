@@ -1,15 +1,16 @@
 /*
 	TOYOSHIKI TinyBASIC V1.0
-	Linux edition
+	CP/M edition
 	(C)2015 Tetsuya Suzuki
+	2021 ported by Meister
 */
 
 // Compiler requires description
 #include <stdio.h>
-#include <termios.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include <stdlib.h>
+//#include <fcntl.h>
 #include <stdint.h>
+#include <conio.h>
 
 // TOYOSHIKI TinyBASIC symbols
 // TO-DO Rewrite defined values to fit your machine as needed
@@ -22,44 +23,18 @@
 
 // Depending on device functions
 // TO-DO Rewrite these functions to fit your machine
-#define STR_EDITION "LINUX"
+#define STR_EDITION "CP/M-80"
 
 // Terminal control
 #define c_putch(c) putchar(c)
 
 char c_getch(){
-	struct termios b;
-	struct termios a;
-	char c;
-
-	tcgetattr(STDIN_FILENO, &b);
-	a = b;
-	a.c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDIN_FILENO, TCSANOW, &a);
-	c = getchar();
-	tcsetattr(STDIN_FILENO, TCSANOW, &b);
-
-	return c;
+	return getch();
 }
 
 char c_kbhit(void)
 {
-	char c;
-	int f;
-
-	f = fcntl(STDIN_FILENO, F_GETFL, 0);
-	fcntl(STDIN_FILENO, F_SETFL, f | O_NONBLOCK);
-
-	c = c_getch();
-
-	fcntl(STDIN_FILENO, F_SETFL, f);
-
-	if (c != EOF) {
-		ungetc(c, stdin);
-		return 1;
-	}
-
-	return 0;
+	return kbhit();
 }
 
 #define KEY_ENTER 10

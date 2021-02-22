@@ -1,7 +1,8 @@
 /*
-	TOYOSHIKI Tiny BASIC for Linux
+	TOYOSHIKI Tiny BASIC for CP/M
 	(C)2015 Tetsuya Suzuki
-	Build: cc ttbasic.c basic.c -o ttbasic
+	2021 ported by Meister
+	Build: zcc +cpm -create-app -ottbasic.bin ttbasic.c basic.c
 */
 
 #include <stdlib.h>
